@@ -1,0 +1,85 @@
+/* 基础样式 */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: #333;
+    padding: 0.5rem 1rem;
+}
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+nav ul li {
+    position: relative;
+    margin: 0 1rem;
+}
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 0;
+    display: flex;
+    align-items: center;
+}
+nav ul li a i {
+    margin-right: 0.5rem; /* 图标与文字间距 */
+}
+nav ul li a:hover {
+    color: #ffcc00;
+}
+
+/* 子菜单样式 */
+nav ul li ul {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #444;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: none; /* 默认隐藏 */
+    opacity: 0;
+    transition: opacity 0.3s ease; /* 淡入效果 */
+    min-width: 150px;
+}
+nav ul li ul li a {
+    padding: 0.5rem 1rem;
+}
+nav ul li ul li a:hover {
+    background-color: #555;
+}
+nav ul li:hover ul {
+    display: block; /* 鼠标悬停显示子菜单 */
+    opacity: 1;    /* 子菜单淡入 */
+}
+
+/* 响应式样式 */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column; /* 垂直排列 */
+        display: none;          /* 默认隐藏 */
+        background-color: #333;
+    }
+    nav ul.show {
+        display: flex; /* 展开菜单 */
+    }
+    nav ul li {
+        margin: 0.5rem 0;
+    }
+    .menu-toggle {
+        display: block;
+        background-color: #444;
+        color: white;
+        padding: 0.5rem 1rem;
+        text-align: center;
+        cursor: pointer;
+    }
+}
