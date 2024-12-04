@@ -59,6 +59,13 @@ nav ul li {
     flex: 1;                      /* 每个导航项占同样宽度 */
     text-align: center;           /* 文本居中 */
 }
+.math {
+    font-family: "MathJax", "serif";
+    font-size: 18px;
+    display: block;
+    text-align: center;
+    margin: 20px 0;
+}
 
 /* 链接样式 */
 nav ul li a {
