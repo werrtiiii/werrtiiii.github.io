@@ -6,7 +6,11 @@ const hiddenMenu = document.getElementById('hidden-menu');
 menuCircle.addEventListener('click', function() {
     // 添加或移除 'clicked' 类，从而触发旋转动画
     this.classList.toggle('clicked');
-
-    // 控制菜单的显示/隐藏
-    hiddenMenu.style.display = hiddenMenu.style.display === 'block' ? 'none' : 'block';
+    
+    // 显示/隐藏菜单
+    if (this.classList.contains('clicked')) {
+        hiddenMenu.style.display = 'block';  // 显示菜单
+    } else {
+        hiddenMenu.style.display = 'none';   // 隐藏菜单
+    }
 });
