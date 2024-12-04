@@ -81,3 +81,9 @@ nav ul li a:hover {
     background-color: #555;       /* 悬停时改变背景色 */
     color: #fff;                  /* 悬停时字体颜色 */
 }
+.math {
+    font-size: 18px;
+    display: inline;
+    margin: 5px;
+    font-family: 'Times New Roman', serif;
+}
