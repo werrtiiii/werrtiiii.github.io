@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>多功能导航栏</title>
+    <!-- 引入 CSS 文件 -->
+    <link rel="stylesheet" href="style.css">
+    <!-- 引入 FontAwesome 图标库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav>
+        <div class="menu-toggle" onclick="toggleMenu()">菜单</div>
+        <ul>
+            <li><a href="#home"><i class="fas fa-home"></i>首页</a></li>
+            <li>
+                <a href="#services"><i class="fas fa-cogs"></i>服务</a>
+                <ul>
+                    <li><a href="#web-design"><i class="fas fa-paint-brush"></i>网页设计</a></li>
+                    <li><a href="#seo"><i class="fas fa-search"></i>SEO 优化</a></li>
+                    <li><a href="#marketing"><i class="fas fa-chart-line"></i>市场营销</a></li>
+                </ul>
+            </li>
+            <li><a href="#about"><i class="fas fa-info-circle"></i>关于我们</a></li>
+            <li><a href="#contact"><i class="fas fa-envelope"></i>联系我们</a></li>
+        </ul>
+    </nav>
+
+    <!-- 内容 -->
+    <div style="padding: 2rem; text-align: center;">
+        <h1>欢迎来到我的网站</h1>
+        <p>这是一个多功能的导航栏示例，包括图标、子菜单、动画效果以及响应式设计。</p>
+    </div>
+
+    <!-- JavaScript 控制 -->
+    <script>
+        function toggleMenu() {
+            const nav = document.querySelector('nav ul');
+            nav.classList.toggle('show');
+        }
+    </script>
+</body>
+</html>
