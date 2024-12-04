@@ -1,26 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>数学分析</title>
-    <script type="text/javascript"
-        MathJax={
-            tex:{
-            inlineMath:[['$','$'],['\','\']]
+    <!-- 配置 MathJax -->
+    <script type="text/javascript">
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\', '\']]  // 支持 $...$ 和 ...
             }
         };
     </script>
     <script type="text/javascript" async
-        src="https://cdnjs.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 2rem;
+            line-height: 1.6;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .formula {
+            margin: 1rem 0;
+            padding: 1rem;
+            background: #f9f9f9;
+            border-left: 4px solid #007acc;
+        }
+    </style>
 </head>
 <body>
     <h1>数学分析</h1>
 
     <p>数学分析是研究函数及其极限、连续性、微积分等性质的数学学科。</p>
 
-    <p>例如，函数的导数定义为：<span class="math">f'(x) = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h}</span></p>
+    <p>例如，函数的导数定义为：<span class="math">$$f'(x) = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h}$$</span></p>
 
     <p>定积分的定义为：</p>
     <div class="math">
