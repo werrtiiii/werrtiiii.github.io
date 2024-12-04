@@ -85,87 +85,6 @@ body {
     align-items: center;
     height: 100vh;
     background-color: #f4f4f4;
-}
-
-.menu-container {
-    text-align: center;
-    position: relative;
-}
-
-/* 菜单图标：初始显示圆圈 */
-.menu-circle {
-    background-color: #333;
-    color: white;
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: transform 0.5s ease, background-color 0.3s ease;
-    font-size: 30px;
-}
-
-.menu-circle:hover {
-    background-color: #555;
-}
-
-/* 隐藏的导航菜单 */
-.hidden-menu {
-    display: none; /* 初始时菜单不可见 */
-    position: absolute;
-    top: 70px;
-    left: -80px;
-    right: -80px;
-    width: 100%;
-    padding: 10px;
-    background-color: rgba(0, 0, 0, 0.8);
-    border-radius: 10px;
-}
-
-.hidden-menu ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.hidden-menu ul li {
-    margin: 10px 0;
-}
-
-.hidden-menu ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-    display: flex;
-    align-items: center;
-}
-
-/* 菜单图标的样式 */
-.hidden-menu ul li a i {
-    margin-right: 10px; /* 图标与文字之间的间距 */
-    font-size: 24px; /* 图标大小 */
-}
-
-/* 菜单图标旋转后显示导航项 */
-.menu-circle.clicked {
-    transform: rotate(180deg); /* 旋转效果 */
-}
-
-.menu-circle.clicked + .hidden-menu {
-    display: block; /* 显示菜单 */
-}
-/* 页面和菜单容器 */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f4f4f4;
     flex-direction: column;
 }
 
@@ -239,11 +158,14 @@ body {
     transform: rotate(180deg); /* 旋转效果 */
 }
 
-.menu-circle.clicked + .hidden-menu {
-    display: block; /* 显示菜单 */
-}
-
 /* 菜单项鼠标悬停效果 */
 .hidden-menu ul li a:hover {
     color: #ffcc00;
 }
+
+/* 打开菜单时显示菜单项 */
+.menu-circle.clicked + .hidden-menu {
+    display: block; /* 让菜单项显示 */
+}
+    
+
