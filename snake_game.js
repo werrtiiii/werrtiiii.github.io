@@ -45,8 +45,13 @@ function startGame(difficulty) {
     gameLoop();
 }
 
-// 游戏主循环
+// 定义暂停标志
+let isPaused = false;
+
+// 修改 gameLoop 函数，确保游戏暂停时停止计时器
 function gameLoop() {
+    if (isPaused) return;  // 如果游戏暂停，则不继续执行
+
     if (gameOver()) return;
 
     gameInterval = setTimeout(function () {
@@ -57,6 +62,34 @@ function gameLoop() {
         updateScore();
         gameLoop();
     }, gameSpeed);
+}
+
+// 监听空格键来控制暂停和恢复
+document.addEventListener("keydown", function(event) {
+    if (event.code === "Space") {
+        togglePause();  // 按空格键切换暂停和继续
+    }
+
+    changeDirection(event);  // 仍然处理方向的变化
+});
+
+// 切换暂停和继续的函数
+function togglePause() {
+    if (isPaused) {
+        isPaused = false;
+        gameLoop();  // 恢复游戏，重新开始游戏循环
+    } else {
+        isPaused = true;
+        clearTimeout(gameInterval);  // 暂停游戏，停止计时器
+    }
+}
+// 在暂停时显示提示
+function displayPauseMessage() {
+    if (isPaused) {
+        ctx.font = "30px Arial";
+        ctx.fillStyle = "white";
+        ctx.fillText("游戏暂停", canvas.width / 2 - 90, canvas.height / 2);
+    }
 }
 
 // 移动蛇
@@ -114,7 +147,6 @@ function spawnFood() {
 function updateScore() {
     document.getElementById("score").textContent = score;
 }
-
 
 // 判断游戏结束
 function gameOver() {
