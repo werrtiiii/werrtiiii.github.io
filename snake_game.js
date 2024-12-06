@@ -115,6 +115,7 @@ function updateScore() {
     document.getElementById("score").textContent = score;
 }
 
+
 // 判断游戏结束
 function gameOver() {
     const head = snake[0];
