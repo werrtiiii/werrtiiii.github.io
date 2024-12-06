@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>贪吃蛇游戏</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>放松一下吧</h1>
+        <nav>
+            <a href="linear_algebra.html">高等代数</a>
+            <a href="mathematical_analysis.html">数学分析</a>
+            <a href="c_programming.html">C语言程序设计</a>
+            <a href="high_school_math.html">高中数学方法</a>
+        </nav>
+    </header>
+    <!-- 开始界面 -->
+    <div id="startScreen">
+        <h1>贪吃蛇游戏</h1>
+        <p>请选择游戏难度：</p>
+        <div class="difficulty">
+            <button onclick="startGame('easy')">简单</button>
+            <button onclick="startGame('medium')">一般</button>
+            <button onclick="startGame('hard')">困难</button>
+        </div>
+        <!-- 显示最高分 -->
+        <div class="high-scores">
+            <p>简单模式 记录: <span id="easyHighScore">0</span></p>
+            <p>一般模式 记录: <span id="mediumHighScore">0</span></p>
+            <p>困难模式 记录: <span id="hardHighScore">0</span></p>
+        </div>
+    </div>
+
+    <!-- 游戏区域 -->
+    <div id="gameArea" style="display: none;">
+        <canvas id="gameCanvas" width="400" height="350"></canvas>
+        <div id="scoreBoard">
+            <p>得分：<span id="score">0</span></p>
+        </div>
+    </div>
+    
+    <footer>
+        <p>© 2024 学习博客 | Designed by Me</p>
+    </footer>
+
+    <script src="snake_game.js"></script>
+</body>
+</html>
