@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>whzer的网站</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        body {
+            background-image: url('img/preview.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+        }
+        
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            opacity: 0.05;
+            z-index: -1;
+        }
+        
+        header, main, footer {
+            position: relative;
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+        
+        .content {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        #welcome {
+            color: #2abed8;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>网站首页</h1>
+        <div class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav class="nav-menu">
+            <a href="linear_algebra.html">高等代数</a>
+            <a href="mathematical_analysis.html">数学分析</a>
+            <a href="c_programming.html">C语言程序设计</a>
+            <a href="high_school_math.html">高中数学</a>
+            <a href="snake_game.html">放松一下吧</a>
+        </nav>
+    </header>
+    <main>
+        <input type="text" id="search-box" placeholder="搜索内容..." onkeyup="searchContent()">
+        <ul id="search-results"></ul>
+        <div id="content">
+            <div class="dynamic-text">
+                <p id="welcome">欢迎</p>
+            </div>
+            <p id="st1">\( E=mc^2 \)&nbsp;&nbsp;&nbsp;\(e^i\pi+1=0\)</p>
+            <p id="st2">
+            $$
+            \int_a^b f(x)dx = F(b) - F(a)
+            $$
+            </p>
+            <p id="st3">$$主=6$$</p>
+        </div>
+    </main>
+    <footer>
+        <p>© 2024 学习博客 | Designed by Whzer HieHie</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

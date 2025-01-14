@@ -1,0 +1,416 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+header {
+    background: #333;
+    color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+main {
+    padding: 20px;
+    text-align: center;
+}
+
+#search-box {
+    width: 80%;
+    padding: 10px;
+    margin: 20px auto;
+    display: block;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+mark {
+    background-color: yellow;
+    font-weight: bold;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background: #333;
+    color: #fff;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+/* style.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+}
+
+#startScreen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.difficulty button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+#gameArea {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+/* 给得分区域设置背景色、边框和透明度 */
+#scoreBoard {
+    position: absolute;
+    /*top: 1px; /* 在页面顶部 */
+    left: 50%; /* 居中显示 */
+    transform: translateX(-50%); /* 居中对齐 */
+    font-size: 1.2em;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5); /* 半透明背景 */
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 10; /* 确保得分区域在其他内容之上 */
+}
+
+/* 其他元素样式保持不变 */
+#gameCanvas {
+    background-color: #000;
+    z-index: 1; /* 画布位于得分区域下面 */
+}
+
+.high-scores {
+    margin-top: 20px;
+    font-size: 1.2em;
+    color: #333;
+}
+
+/* 改进文章列表样式 */
+main ul {
+    list-style: none;
+    padding: 0;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+main li {
+    margin: 15px 0;
+    padding: 10px;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+
+main li:hover {
+    transform: translateY(-2px);
+}
+
+main li a {
+    color: #333;
+    text-decoration: none;
+    font-size: 1.1em;
+}
+
+/* 改进搜索结果样式 */
+#search-results {
+    list-style: none;
+    padding: 0;
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+#search-results li {
+    padding: 10px;
+    margin: 5px 0;
+    background: white;
+    border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+    nav {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    nav a {
+        margin: 5px 0;
+    }
+
+    #search-box {
+        width: 95%;
+    }
+
+    #gameCanvas {
+        width: 100%;
+        height: auto;
+    }
+
+    /* 调整主要内容区域 */
+    main {
+        padding: 10px;
+        margin-bottom: 60px; /* 为固定的footer留出空间 */
+    }
+
+    /* 调整欢迎文本大小 */
+    #welcome {
+        font-size: 1.5em;
+        padding: 0 10px;
+    }
+
+    /* 调整数学公式显示 */
+    #st1, #st2, #st3 {
+        font-size: 16px !important;
+        overflow-x: auto;
+        padding: 10px 0;
+    }
+
+    /* 调整页脚 */
+    footer {
+        padding: 5px;
+        font-size: 0.9em;
+    }
+
+    /* 调整搜索结果显示 */
+    #search-results {
+        width: 95%;
+        margin: 10px auto;
+    }
+
+    /* 调整文章列表样式 */
+    main ul {
+        width: 95%;
+    }
+
+    main li {
+        margin: 10px 0;
+        padding: 8px;
+    }
+
+    /* 调整标题大小 */
+    header h1 {
+        font-size: 1.5em;
+    }
+
+    /* 调整文章内容显示 */
+    article section {
+        padding: 15px;
+        margin: 10px 0;
+    }
+}
+
+/* 文章样式优化 */
+article section {
+    margin: 20px 0;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+article h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+/* 代码块样式 */
+pre code {
+    display: block;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 5px;
+    overflow-x: auto;
+}
+
+/* 返回顶部按钮 */
+#backToTop {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99;
+    cursor: pointer;
+    padding: 15px;
+    background-color: #333;
+    color: white;
+    border-radius: 50%;
+    opacity: 0.8;
+}
+
+#backToTop:hover {
+    opacity: 1;
+}
+
+/* 页面加载动画 */
+.loader {
+    border: 5px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 5px solid #3498db;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -20px;
+    margin-left: -20px;
+    display: none;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* 动态文本效果 */
+.dynamic-text {
+    margin: 30px 0;
+}
+
+#welcome {
+    font-size: 2em;
+    color: #fa04ee;
+    animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 添加汉堡菜单样式 */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 10px;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 2px 0;
+    transition: 0.4s;
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    .nav-menu {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        background-color: #333;
+        padding: 10px 0;
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .nav-menu a {
+        padding: 10px 20px;
+        text-align: center;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .nav-menu a:last-child {
+        border-bottom: none;
+    }
+}
+
+/* 修改导航栏样式 */
+.nav-menu {
+    background-color: rgba(255, 255, 255, 0.2);  /* 改为浅白色半透明背景 */
+    border-radius: 8px;
+    margin-top: 10px;
+    backdrop-filter: blur(5px);                  /* 添加毛玻璃效果 */
+}
+
+.nav-menu a {
+    color: #00ffff;                             /* 保持亮青色文字 */
+    text-decoration: none;
+    margin: 0 15px;
+    padding: 8px 12px;
+    transition: all 0.3s ease;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* 加深文字阴影提高可读性 */
+}
+
+.nav-menu a:hover {
+    color: #ff69b4;
+    background-color: rgba(255, 255, 255, 0.3);  /* 悬停时背景稍微加深 */
+    border-radius: 4px;
+}
+
+/* 移动端样式优化 */
+@media (max-width: 768px) {
+    .nav-menu {
+        background-color: rgba(255, 255, 255, 0.25); /* 移动端背景稍微加深 */
+        border-radius: 0;
+        margin-top: 0;
+    }
+
+    .nav-menu a {
+        padding: 12px 20px;
+        border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+        margin: 0;
+        display: block;
+    }
+
+    .nav-menu a:hover {
+        background-color: rgba(255, 255, 255, 0.35);
+    }
+}
+
+
+

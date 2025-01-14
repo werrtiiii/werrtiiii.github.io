@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>贪吃蛇游戏</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-image: url('img/preview.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+        }
+        
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            opacity: 0.05;
+            z-index: -1;
+        }
+        
+        header, main, footer {
+            position: relative;
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+        
+        .content {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        /* 确保游戏区域可见 */
+        #gameCanvas {
+            background-color: #000;
+            z-index: 1;
+        }
+
+        /* 添加新的样式 */
+        #startScreen h1, 
+        #startScreen p {
+            color: #00ffff;  /* 使用亮青色 */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);  /* 添加文字阴影提高可读性 */
+            font-weight: bold;
+        }
+
+        .high-scores p {
+            color: #00ffff;  /* 使用相同的亮青色 */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            font-weight: bold;
+        }
+
+        /* 让记录数字更醒目 */
+        .high-scores span {
+            color: #ff69b4;  /* 使用亮粉色突出显示分数 */
+            font-size: 1.2em;
+        }
+
+        /* 添加得分样式 */
+        #scoreBoard p {
+            color: #00ffff;  /* 使用亮青色，与其他文字保持一致 */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            font-weight: bold;
+        }
+
+        #score {
+            color: #ff69b4;  /* 使用亮粉色突出显示分数 */
+            font-size: 1.2em;
+        }
+
+        /* 修改得分板样式 */
+        #scoreBoard {
+            position: relative;  /* 改为相对定位 */
+            margin: 10px 0;     /* 添加上下边距 */
+            text-align: center;
+        }
+
+        /* 修改移动端控制按钮样式 */
+        #mobileControls {
+            display: none;
+            margin-top: 30px;   /* 增加与得分板的距离 */
+            padding: 10px;
+            text-align: center;
+            position: relative;
+        }
+
+        .control-row {
+            margin: 8px 0;
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        #mobileControls button {
+            width: 50px;        /* 稍微减小按钮尺寸 */
+            height: 50px;
+            font-size: 20px;    /* 调整字体大小 */
+            background-color: rgba(0, 255, 255, 0.3);
+            border: 2px solid #00ffff;
+            border-radius: 8px;
+            color: #00ffff;
+            cursor: pointer;
+            padding: 8px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        #pauseBtn {
+            font-size: 16px !important;
+        }
+
+        /* 移动端适配 */
+        @media (max-width: 768px) {
+            #gameCanvas {
+                width: 300px;
+                height: 300px;
+                margin-bottom: 10px;  /* 添加底部边距 */
+            }
+
+            #mobileControls {
+                display: block;
+                margin-top: 20px;     /* 调整顶部边距 */
+            }
+
+            /* 确保游戏区域和控制按钮之间有足够空间 */
+            #gameArea {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;            /* 添加元素之间的间距 */
+                padding-bottom: 20px;  /* 底部添加内边距 */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>放松一下吧</h1>
+        <div class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav class="nav-menu">
+            <a href="index.html">首页</a>
+            <a href="linear_algebra.html">高等代数</a>
+            <a href="mathematical_analysis.html">数学分析</a>
+            <a href="c_programming.html">C语言程序设计</a>
+            <a href="high_school_math.html">高中数学</a>
+        </nav>
+    </header>
+    <!-- 开始界面 -->
+    <div id="startScreen">
+        <h1>贪吃蛇游戏</h1>
+        <p>请选择游戏难度：</p>
+        <div class="difficulty">
+            <button onclick="startGame('easy')">简单</button>
+            <button onclick="startGame('medium')">一般</button>
+            <button onclick="startGame('hard')">困难</button>
+        </div>
+        <!-- 显示最高分 -->
+        <div class="high-scores">
+            <p>简单模式 记录: <span id="easyHighScore">0</span></p>
+            <p>一般模式 记录: <span id="mediumHighScore">0</span></p>
+            <p>困难模式 记录: <span id="hardHighScore">0</span></p>
+        </div>
+    </div>
+
+    <!-- 游戏区域 -->
+    <div id="gameArea" style="display: none;">
+        <canvas id="gameCanvas" width="400" height="400"></canvas>
+        <div id="scoreBoard">
+            <p>得分：<span id="score">0</span></p>
+        </div>
+        <!-- 添加移动端控制按钮 -->
+        <div id="mobileControls">
+            <div class="control-row">
+                <button id="upBtn">↑</button>
+            </div>
+            <div class="control-row">
+                <button id="leftBtn">←</button>
+                <button id="pauseBtn">暂停</button>
+                <button id="rightBtn">→</button>
+            </div>
+            <div class="control-row">
+                <button id="downBtn">↓</button>
+            </div>
+        </div>
+    </div>
+    <br>
+    <footer>
+        <p>© 2024 学习博客 | Designed by Whzer HieHie</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="snake_game.js"></script>
+</body>
+</html>
